@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Στοιχεία μοναδιαίου κόστους Σιδηροδρομικών Γεφυρών</title>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+/* http://www.wordpressthemes2014.com/2014/02/18/free-css-table-templates/ */
+
+body  {
+   /* font-family: Calibri; */
+   font-size: 11pt;
+   /* background-color: white; */
+   /* padding-top: 1em; */
+   /* margin: auto; */
+   /* max-width: 45em; */
+}
+
+p {
+  font-family: Calibri;
+  font-size: 12pt;
+  width: 99%;
+  margin-bottom: 10pt;
+}
+
+table.contentpaneopen li { 
+  font-family: Calibri;
+  font-size: 12pt;
+}
+
+a {
+  color: #c75f3e;
+}
+
+table {
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+}
+
+caption {
+  padding: 0 0 10px 0;
+  width: 700px;	 
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-align: left;
+	padding: 3px 3px 3px 3px;
+	background: #D6E7EF url(images/bg_header.jpg) no-repeat;
+  /*  #CAE8EA  */
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+td {
+	font-family: sans-serif;
+  font-size: 12px;
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 3px 3px 3px 3px;
+	color: #4f6b72;
+}
+
+td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+
+
+/* The following sections are from 
+   http://gforge.se/2014/01/fast-track-publishing-using-knitr-part-ii/  */
+
+
+/* Set the headings to correspond to Word-style */
+h1, h2, h3, h4, h5, h6 {
+  /* margin: 4pt 0pt 6pt 0pt; */
+  font-family: Cambria;
+  font-weight: bold;
+}
+ 
+/* h1 has a slightly larger top margins 
+   so we re-set that from the other*/
+h1 {
+  /* margin: 24pt 0pt 6pt 0pt; */
+  font-size: 14pt;
+  color: #365F91;
+}
+ 
+ 
+h2 {
+  font-size: 13pt;
+  color: #3A7296 /* #4F81BD; 407396 566D8C 3A7296 496F85 4B7C89 */
+}
+ 
+h3 {
+  font-size: 12pt;
+  color: #3A7296 /* #4F81BD; */
+}
+ 
+h4 {
+  font-size: 12pt;
+  font-weight: lighter;
+  font-style: italic;
+  color: #3A7296 /* #4F81BD; */
+}
+ 
+h5 {
+  font-size: 11pt;
+  font-weight: normal;
+  color: #243F5D;
+}
+ 
+h6 {
+  font-size: 11pt;
+  font-weight: normal;
+  font-style: italic;
+  color: #243F5D;
+}
+ 
+/* The following sections are mostly 
+   unrelated to Word/Libre Office imports */
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+ 
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+ 
+pre code {
+   font-size: 12px; font-family: monaco, courier, consolas, monospace;
+}
+
+pre {
+  margin-top: 5px;
+	margin-bottom: 10px;
+  max-width: 95%;
+  border: 1px solid #2f6fab;
+  border-radius: 3px; 
+	background: #f1f5f9;
+	margin: 20px 0;
+	padding: 8px;
+	text-align: left;
+}
+ 
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+ 
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+ 
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+div.centered 
+{
+  font-family: Calibri;
+  font-size: 12pt;
+  text-align: center;
+}
+
+div.centered table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 480px;    
+    border: solid #ccc 1px;
+    line-height: 0.8em;
+    text-align: left;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+div.centered tr:hover td
+{
+	background: #fbf8e9; /* add8e6 */
+	color: #339;
+	    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}
+    
+div.centered td, div.centered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;    
+}
+
+div.centered th {
+    background-color: #d6e7ef;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5fafa), to(#d6e7ef));
+    background-image: -webkit-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:    -moz-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:     -ms-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:      -o-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:         linear-gradient(top, #f5fafa, #d6e7ef);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+div.centered td:first-child, div.centered th:first-child {
+	  background-color: #d6e7ef;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5fafa), to(#d6e7ef));
+    background-image: -webkit-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:    -moz-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:     -ms-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:      -o-linear-gradient(top, #f5fafa, #d6e7ef);
+    background-image:         linear-gradient(top, #f5fafa, #d6e7ef);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+    border-left: none;
+}
+
+div.centered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+div.centered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+div.centered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+div.centered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+div.centered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+<p style="text-align:right">
+<a href="http://wks465/ergonet/index.php?option=com_content&view=category&id=19&Itemid=55">Επιστροφή στο Μενού Κοστολογικών Αναφορών</a>
+</p>
+
+<p><a target="_blank" style="font-weight:bold" href="figure/sweave_kost_SGE_OGE.pdf">Κατεβάστε την αναφορά σε μορφή PDF</a></p>
+
+<p><br></p>
+
+<h2>Στοιχεία μοναδιαίου κόστους Σιδηροδρομικών Γεφυρών</h2>
+
+<h3>Γενικά στοιχεία δείγματος</h3>
+
+<p><br>
+Το δείγμα αποτελείται από <strong>40</strong> τεχνικά Σιδ/κών Γεφυρών. Από αυτές 34 είναι Διπλής γραμμής και 6 Μονής. </p>
+
+<p>Στα δεδομένα για τα τεχνικά των Σιδηροδρομικών γεφυρών περιλαμβάνονται ο αριθμός των ανοιγμάτων και η μέθοδος κατασκευής. Στη συνέχεια θα ελεγχθεί εάν οι παράγοντες αυτοί επιδρούν σημαντικά στην παρατηρούμενη μεταβλητότητα των τιμών του μοναδιαίου κόστους. Για τον τρόπο υπολογισμού του συνολικού κόστους και αναγωγής του σε τρέχουσες τιμές (χρήση συντελεστή λ:  Α&#x27; 2012), βλ. <code>&quot;Εγχειρίδιο Χρήσης Εφαρμογής ΗΦΑΙΣΤΟΣ – Κοστολόγηση&quot;</code> στο εταιρικό MIS.    </p>
+
+<p>Ο πίνακας με τα αναλυτικά δεδομένα του δείγματος καθώς και στοιχεία για τη μεθοδολογία και τις παραδοχές της ανάλυσης, δίνονται στο τέλος της σελίδας. </p>
+
+<p><br></p>
+
+<h3>Σιδηροδρομικές Γέφυρες Διπλής γραμμής</h3>
+
+<h3>Περιγραφικά Στατιστικά Στοιχεία</h3>
+
+<h4>Στοιχεία για το Σύνολο του Δείγματος</h4>
+
+<p>Στη συνέχεια παρατίθενται πίνακες με περιγραφικά στατιστικά στοιχεία, αφενός για το σύνολο του δείγματος των Σιδηροδρομικών Γεφυρών και στη συνέχεια για συγκεκριμένες υποομάδες.</p>
+
+<p>Η ερμηνεία του χαρακτηρισμού στην αρχή κάθε γραμμής, στους παρακάτω πίνακες Περιγραφικών Στατιστικών Στοιχείων, δίνεται στη συνέχεια:</p>
+
+<ol>
+<li>Πλήθος δείματος (<strong>nbr.val</strong>), </li>
+<li>Πλήθος τιμών που δεν έχουν οριστεί (<strong>nbr.null</strong>), </li>
+<li>Πλήθος τιμών που έχουν οριστεί αλλά λείπουν (<strong>nbr.na</strong>), </li>
+<li>Ελάχιστη τιμή (<strong>min</strong>), </li>
+<li>Μέγιστη τιμή (<strong>max</strong>), </li>
+<li>Εύρος τιμών (<strong>max - min</strong>),</li>
+<li>Άθροισμα των μη ελλειπουσών τιμών (<strong>sum</strong>),</li>
+<li>Διάμεσος (<strong>median</strong>), </li>
+<li>Μέση τιμή (<strong>mean</strong>), </li>
+<li>Τυπικό σφάλμα (<strong>SE.mean</strong>). Η αύξηση του μεγέθους του δείγματος μειώνει το τυπικό σφάλμα και αυξάνει την ισχύ των ελέγχων. </li>
+<li>Περιθώριο σφάλματος ( \(\pm\) ) στην εκτίμηση της μέσης τιμής με 95% πιθανότητα (<strong>CI.mean.0.95</strong>), </li>
+<li>Διακύμανση (<strong>var</strong>), </li>
+<li>Τυπική Απόκλιση (<strong>std.dev</strong>), </li>
+<li>Συντελεστής Μεταβλητότητας (<strong>coef.var</strong>), μέσω του οποίου καθίστανται άμεσα συγκρίσιμες οι διακυμάνσεις των διαφόρων μεταβλητών. Ένα δείγμα που έχει μικρότερο συντελεστή μεταβλητότητας από ένα άλλο χαρακτηρίζεται περισσότερο ομοιογενές. Γενικά, δεχόμαστε ότι ένα δείγμα είναι ομοιογενές όταν ο συντελεστής μεταβλητότητας είναι μικρότερος ή ίσος από 0,1.</li>
+</ol>
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγ.</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Κόστος / μ.μ.</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.val</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">34</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">31</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">34</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">nbr.null</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.na</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">min</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">7.6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6964.15</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">max</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">657</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">15</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">47380.44</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">range</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">649.4</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">14</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">40416.29</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sum</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">4560.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">125</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">692475.05</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">median</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">62.4</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">19484.47</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">134.15</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">4.03</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">20366.91</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">SE.mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">28.11</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.65</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1612.95</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">CI.mean.0.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">57.2</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1.32</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">3281.57</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">26873.74</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">12.97</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">88454743.62</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">std.dev</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">163.93</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">3.6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">9405.04</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">coef.var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1.22</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.89</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.46</td>
+</tr>
+</table>
+
+<div class="centered">
+
+Πίνακας 1. Σιδηροδρομικές Γέφυρες Διπλής γραμμής
+</div>
+
+<p><br></p>
+
+<h5>Ιστόγραμμα Συχνοτήτων</h5>
+
+<p>Το ιστόγραμμα δίνει μια εικόνα της κατανομής των τιμών μιας μεταβλητής στο υπόψη δείγμα. Στο συγκεκριμένο γράφημα η κάθε ράβδος έχει ύψος ίσο με τον αριθμό των γεφυρών των οποίων το μον. κόστος εμπίπτει στο αντίστοιχο εύρος (κλάση). Ο αριθμός των κλάσεων (ή bins) επιλέγεται αυτόματα βάσει της μεθόδου <em>&ldquo;Doane&rdquo;</em> (για περισσότερα <a href="http://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width">δείτε εδώ</a>). </p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$geom_histogram_1" alt="plot of chunk knitr_kost_SGE_OGE$geom_histogram_1" style="display:block; margin:auto;" /></p>
+
+<p><br></p>
+
+<h5>Κατανομές Συχνοτήτων ανά Μέθοδο Κατασκευής</h5>
+
+<p>Τα ιστογράμματα έχουν το μειονέκτημα ότι αλλάζει η μορφή τους όταν αλλάζει το επιλεγμένο πλάτος των κλάσεων.  Οι καμπύλες του παρακάτω γραφήματος (εκτιμήτριες πυκνότητας πυρήνα - Kernel Density Estimators) αποτελούν εξομαλυμένες αναπαραστάσεις των ιστογραμμάτων του μον. κόστους, για κάθε μέθοδο κατασκευής. Μέσω αυτών, το προαναφερθέν μειονέκτημα των ιστογραμμάτων αίρεται. Οι εκτιμήτριες πυκνότητας έχουν το επιπλέον πλεονέκτημα ότι δίνουν τη δυνατότητα απεικόνισης περισσότερων της μίας κατανομών, στο ίδιο γράφημα. </p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$geom_density_1" alt="plot of chunk knitr_kost_SGE_OGE$geom_density_1" style="display:block; margin:auto;" /></p>
+
+<p><br></p>
+
+<h5>Θηκογράμματα Μοναδιαίου Κόστους ανά Τύπο και Μέθοδο Κατασκευής</h5>
+
+<p>Το θηκόγραμμα (box-plot) είναι μία γραφική τεχνική η οποία απεικονίζει πέντε χαρακτηριστικά: Τη μικρότερη και τη μεγαλύτερη παρατήρηση (άκρα των κατακόρυφων ευθύγραμμων τμημάτων), το 1ο και 3ο τεταρτημόριο (που σχηματίζουν ένα ορθογώνιο πλαίσιο), και το 2ο τεταρτημόριο (διάμεσος) με μια πιο έντονη οριζόντια γραμμή εντός του πλαισίου. Παρατηρήσεις οι οποίες απέχουν περισσότερο από 1,5 φορά το ύψος του πλαισίου από τα όριά του, θεωρούνται ακραίες τιμές και σχεδιάζονται σαν μεμονωμένα (bold) σημεία. </p>
+
+<p>Στο συγκεκριμένο γράφημα αποτυπώνονται επιπλέον έγχρωμα σημεία που αντιστοιχούν στις παρατηρήσεις κάθε ομάδας, με μέγεθος ανάλογο του μήκους της αντίστοιχης γέφυρας. </p>
+
+<p>(Εμφανίζονται οι μέθοδοι κατασκευής για τις οποίες το δείγμα περιλαμβάνει τουλάχιστον 3 παρατηρήσεις. )</p>
+
+<p>Σημειώνεται ότι στις περιπτώσεις ύπαρξης ακραίων παρατηρήσεων, ενδείκνυται περισσότερο ή χρήση της <em>Διαμέσου</em>, ως μέτρου θέσης, παρά η <em>Μέση Τιμή</em>. </p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$geom_boxplot_1" alt="plot of chunk knitr_kost_SGE_OGE$geom_boxplot_1" style="display:block; margin:auto;" /></p>
+
+<p><br></p>
+
+<h5>Διαγράμματα Διασποράς Μον. Κόστους και Αρ. Ανοιγμάτων ανά Μέθοδο Κατασκευής</h5>
+
+<p>Σε κάθε διάγραμμα έχει προσαρμοστεί η καμπύλη πολυωνυμικής παλινδρόμησης 2ου βαθμού. Εμφανίζονται οι μέθοδοι κατασκευής για τις οποίες το δείγμα περιλαμβάνει τουλάχιστον 3 παρατηρήσεις. Η σκιασμένη επιφάνεια αντιστοιχεί στην 80% περιοχή εμπιστοσύνης. Το μέγεθος κάθε σημείου είναι ανάλογο του μήκους της αντίστοιχης γέφυρας.</p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$geom_point_1" alt="plot of chunk knitr_kost_SGE_OGE$geom_point_1" style="display:block; margin:auto;" /></p>
+
+<p><br></p>
+
+<h4>Περιγραφικά Στατιστικά στοιχεία (Μέθοδος Κατασκευής: <em>Ικριώματα</em>)</h4>
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγ.</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Κόστος / μ.μ.</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.val</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">16</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">16</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">16</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">min</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">14.7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6964.15</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">max</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">117</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">39366.16</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">range</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">102.3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">4</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">32402.01</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sum</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">798.15</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">31</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">294666.93</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">median</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">30.07</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1.5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">18019.45</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">49.88</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1.94</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">18416.68</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">SE.mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">10.19</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">2538.52</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">CI.mean.0.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">21.72</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.63</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">5410.72</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1660.92</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1.4</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">103105088.3</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">std.dev</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">40.75</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1.18</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">10154.07</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">coef.var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.82</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.61</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.55</td>
+</tr>
+</table>
+
+<div class="centered">
+
+Πίνακας 2. Σιδηροδρομικές Γέφυρες Διπλής γραμμής (Ικριώματα)
+</div>
+
+<p><br></p>
+
+<h4>Περιγραφικά Στατιστικά στοιχεία (Μέθοδος Κατασκευής: <em>Προκατ. Δοκοί</em>)</h4>
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγ.</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Κόστος / μ.μ.</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.val</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">min</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">20</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">10656.96</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">max</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">207</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">23565.51</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">range</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">187</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">12908.55</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sum</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">566.8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">19</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">111767.24</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">median</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">72</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">19470.02</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">94.47</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">3.17</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">18627.87</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">SE.mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">31.87</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.87</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1886.3</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">CI.mean.0.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">81.93</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.24</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">4848.88</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6095.73</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">4.57</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">21348707.56</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">std.dev</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">78.08</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.14</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">4620.47</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">coef.var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.83</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.67</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.25</td>
+</tr>
+</table>
+
+<div class="centered">
+
+Πίνακας 3. Σιδηροδρομικές Γέφυρες Διπλής γραμμής (Προκατ. Δοκοί)
+</div>
+
+<p><br></p>
+
+<h4>Περιγραφικά Στατιστικά στοιχεία (Μέθοδος Κατασκευής: <em>Σταδ. Προώθηση</em>)</h4>
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγ.</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Κόστος / μ.μ.</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.val</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">7</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">min</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">207</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">12447.97</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">max</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">522</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">12</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">31884.22</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">range</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">315</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">19436.25</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sum</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2402</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">56</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">138129.74</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">median</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">342</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">17705.43</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">343.14</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">19732.82</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">SE.mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">44.21</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.98</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">2721.53</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">CI.mean.0.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">108.19</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.39</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6659.34</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">13683.81</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6.67</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">51847078.38</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">std.dev</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">116.98</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.58</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">7200.49</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">coef.var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.34</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.32</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.36</td>
+</tr>
+</table>
+
+<div class="centered">
+
+Πίνακας 4. Σιδηροδρομικές Γέφυρες Διπλής γραμμής (Σταδ.Προώθηση)
+</div>
+
+<p><br></p>
+
+<h4>Περιγραφικά Στατιστικά στοιχεία (Μέθοδος Κατασκευής: <em>Προβολοδόμηση</em>)</h4>
+
+<div class="centered">
+
+Δεν δίνεται πίνακας λόγω μικρού δείγματος.
+
+
+
+</div>
+
+<p><br></p>
+
+<h3>Έλεγχοι υποθέσεων</h3>
+
+<h4>Υπόθεση κανονικά κατανεμημένων τιμών &ldquo;Μον. Κόστους&rdquo; σε όλα τα επίπεδα του παράγοντα &ldquo;Μέθοδος Κατασκευής&rdquo;</h4>
+
+<div class="centered">
+
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μέθοδος Κατασκευής</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">p_value</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αποτέλεσμα</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Ικριώματα</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.05</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Η υπόθεση κανονικότητας απορρίπτεται</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">2</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Προκατ. Δοκοί</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.583</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Δεν μπορεί να απορριφθεί η υπόθεση κανονικότητας</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Σταδ.Προώθηση</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.416</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Δεν μπορεί να απορριφθεί η υπόθεση κανονικότητας</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">4</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">NA</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.024</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Η υπόθεση κανονικότητας απορρίπτεται</td>
+</tr>
+  <tr>
+    <td colspan="4" style="font-style:italic; border-top:double black; text-align:right;">Έλεγχος Shapiro-Wilk</td>
+</tr>
+</table>
+
+
+Πίνακας 5. Αποτελέσματα Ελέγχου Κανονικότητας
+</div>
+
+<p><br></p>
+
+<h4>Υπόθεση ομοσκεδαστικότητας (κοινής διακύμανσης) τιμών &ldquo;Μον. Κόστους&rdquo; σε όλα τα επίπεδα του παράγοντα &ldquo;Μέθοδος Κατασκευής&rdquo;</h4>
+
+<div class="centered">
+
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">p_value</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αποτέλεσμα</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.256</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Δεν μπορεί να απορριφθεί η υπόθεση ομοσκεδαστικότητας</td>
+</tr>
+  <tr>
+    <td colspan="3" style="font-style:italic; border-top:double black; text-align:right;">Έλεγχος Levene</td>
+</tr>
+</table>
+
+
+Πίνακας 6. Αποτελέσματα Ελέγχου Ομοσκεδαστικότητας
+</div>
+
+<p><br></p>
+
+<h4>Υπόθεση κοινής κατανομής των τιμών &ldquo;Μον. Κόστους&rdquo; σε όλα τα επίπεδα του παράγοντα &ldquo;Μέθοδος Κατασκευής&rdquo;</h4>
+
+<div class="centered">
+
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">p_value</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αποτέλεσμα</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.941</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">Δεν μπορεί να απορριφθεί η υπόθεση κοινής κατανομής</td>
+</tr>
+  <tr>
+    <td colspan="3" style="font-style:italic; border-top:double black; text-align:right;">Έλεγχος Kruskal-Wallis</td>
+</tr>
+</table>
+
+
+Πίνακας 7. Αποτελέσματα Ελέγχου Κοινής Κατανομής
+</div>
+
+<p><br>
+Στην περίπτωση που απορρίπτεται η υπόθεση κοινής κατανομής, ο παρακάτω <em>post-hoc</em> έλεγχος δείχνει ποια επίπεδα του παράγοντα &ldquo;Μέθοδος Κατασκευής&rdquo; διαφέρουν σημαντικά μεταξύ τους, ως προς το μον. κόστος. Για λεπτομέρειες της μεθόδου που χρησιμοποιήθηκε για αυτόν το μη-παραμετρικό post-hoc έλεγχο <a href="http://giraudoux.pagesperso-orange.fr/SiegelCastellan1988.pdf">δείτε εδώ</a>  </p>
+
+<div class="centered">
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">obs.dif</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">critical.dif</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">difference</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Ικριώματα-Προβολοδόμηση</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.438</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">23.94</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Ικριώματα-Προκατ. Δοκοί</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1.771</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">11.118</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Ικριώματα-Σταδ.Προώθηση</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.152</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">10.525</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Προβολοδόμηση-Προκατ. Δοκοί</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.667</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">25.087</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Προβολοδόμηση-Σταδ.Προώθηση</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.286</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">24.829</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Προκατ. Δοκοί-Σταδ.Προώθηση</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.381</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">12.922</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">FALSE</td>
+</tr>
+  <tr>
+    <td colspan="4" style="font-style:italic; border-top:double black; text-align:right;">Nonparametric statistics for the behavioral sciences. Siegel, Castellan, 1988</td>
+</tr>
+</table>
+
+
+Πίνακας 8. Αποτελέσματα Πολλαπλών Συγκρίσεων για τον Έλεγχο Κοινής Κατανομής
+</div>
+
+<p><br>
+Από τα αποτελέσματα του πιο πάνω πίνακα προκύπτει ότι: <u><strong>σε καμία ομάδα δεν παρατηρείται σημαντική διαφοροποίηση ως προς τον μον. κόστος.</strong></u></p>
+
+<p><br></p>
+
+<h4>Υπόθεση γραμμικής συσχέτισης μεταξύ μεταβλητών</h4>
+
+<p>Από τα πιο πάνω Διαγράμματα Διασποράς Μον. Κόστους και Αρ. Ανοιγμάτων ανά Μέθοδο Κατασκευής, δίνεται η εντύπωση ότι ενδεχομένως υπάρχει συσχέτιση μεταξύ Μον. Κόστους και Αρ. Ανοιγμάτων για την μέθοδο της Σταδιακής Προώθησης.  Στη συνέχεια γίνεται έλεγχος γραμμικής συσχέτισης ώστε να αποφανθούμε αν η συσχέτιση αυτή είναι στατιστικώς σημαντική. <em>(Σημειώστε ότι τονίζεται η λέξη &ldquo;γραμμική&rdquo; δεδομένου ότι ο συντελεστής συσχέτισης συλλαμβάνει τη γραμμική σχέση μεταξύ δύο μεταβλητών. Όταν είναι κοντά στο μηδέν, αυτό σημαίνει ότι είτε οι μεταβλητές δεν συνδέονται, είτε ότι συνδέονται αλλά η σχέση δεν είναι γραμμική. Ως εκ τούτου, θα πρέπει να είμαστε προσεκτικοί όσον αφορά την ερμηνεία ενός συντελεστή συσχέτισης κοντά στο μηδέν, ως μη ύπαρξης σχέσης μεταξύ των τυχαίων μεταβλητών.)</em> </p>
+
+<p>Στα παρακάτω αποτελέσματα παρουσιάζονται οι συσχετίσεις (κατά <em>Spearman</em>) μεταξύ όλων των διαθέσιμων αριθμητικών μεταβλητών, δηλ. &ldquo;Μήκους&rdquo;, &ldquo;Αρ. Ανοιγμάτων&rdquo;, &ldquo;Μον. Κόστους&rdquo; και &ldquo;Συν. Κόστους&rdquo;. Κάτω από τη διαγώνιο δίνονται οι ακριβείς αριθμητικές τιμές, ενώ πάνω από τη διαγώνιο οι συσχετίσεις παριστάνονται σχηματικά. Όσο πιο πεπλατυσμένη η έλλειψη (και έντονο το χρώμα), τόσο μεγαλύτερη η συσχέτιση. Αποχρώσεις του μπλε δείχνουν θετική συσχέτιση και αποχρώσεις του κόκκινου αρνητική. Το γράφημα στα <strong>αριστερά</strong> αφορά τις περιπτώσεις με &ldquo;Μέθοδο Κατασκευής&rdquo; = &ldquo;Σταδ. Προώθηση&rdquo;, ενώ αυτό στα <strong>δεξιά</strong> όλες τις περιπτώσεις.</p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$corr_1" alt="plot of chunk knitr_kost_SGE_OGE$corr_1" style="display:block; margin:auto;" /></p>
+
+<p>Στον επόμενο πίνακα, κάτω από τη διαγώνιο δίνονται οι p-values του ελέγχου, ενώ πάνω από τη διαγώνιο οι προσαρμοσμένες τιμές τους, για πολλαπλές συγκρίσεις (κατά <em>Holm</em>). Τιμές κάτω από 0,05 υποδηλώνουν στατιστικώς σημαντική γραμμική συσχέτιση. </p>
+
+<div class="centered">
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγμάτων</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μον. Κόστος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Συν. Κόστος</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Μήκος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.644</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Αρ. Ανοιγμάτων</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.644</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Μον. Κόστος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.355</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.355</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Συν. Κόστος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.129</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.129</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.337</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+</tr>
+  <tr>
+    <td colspan="5" style="font-style:italic; border-top:double black; text-align:right;">Έλεγχος Spearman rank-order</td>
+</tr>
+</table>
+
+
+Πίνακας 9. Αποτελέσματα Ελέγχου Γρ. Συσχετίσεων, στην περίπτωση &ldquo;Σταδιακής Προώθησης&rdquo;
+</div>
+
+<p><br>
+Παρακάτω δίνεται ο αντίστοιχος πίνακας των p-values για το σύνολο των Σιδ. Γεφυρών διπλής γραμμής.</p>
+
+<div class="centered">
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγμάτων</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μον. Κόστος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Συν. Κόστος</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Μήκος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Αρ. Ανοιγμάτων</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Μον. Κόστος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.801</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.562</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.135</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Συν. Κόστος</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0.045</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">0</td>
+</tr>
+  <tr>
+    <td colspan="5" style="font-style:italic; border-top:double black; text-align:right;">Έλεγχος Spearman rank-order</td>
+</tr>
+</table>
+
+
+Πίνακας 10. Αποτελέσματα Ελέγχου Γρ. Συσχετίσεων, για το σύνολο των Σιδ. Γεφυρών Διπλής Γραμμής
+</div>
+
+<p><br>
+<u>
+<strong>Με βάση τον τελευταίο πίνακα,  υπάρχει σημαντική γραμμική συσχέτιση μεταξύ &ldquo;Μον. Κόστους&rdquo; και &ldquo;Συνολικού Κόστους&rdquo; στο σύνολο των περιπτώσεων</strong>.
+</u></p>
+
+<p><br></p>
+
+<h3>Σιδηροδρομικές Γέφυρες Μονής γραμμής</h3>
+
+<h3>Περιγραφικά Στατιστικά Στοιχεία</h3>
+
+<h4>Στοιχεία για το Σύνολο του Δείγματος</h4>
+
+<table style="border-collapse:collapse; border:none;">
+  <tr>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black; "></th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Μήκος</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Αρ. Ανοιγ.</th>
+    <th style="border-top: double; text-align:center; font-style:italic; font-weight:normal; padding:0.2cm; border-bottom:1px solid black;">Κόστος / μ.μ.</th>
+  </tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nbr.val</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">6</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">min</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">85.2</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">3</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">7150.13</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">max</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">292</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">10</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">45137.38</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">range</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">206.8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">37987.25</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sum</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">1096.8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">32</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">85248.72</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">median</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">157.7</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">4.5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">8213.16</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">182.8</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">5.33</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">14208.12</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">SE.mean</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">35.92</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1.02</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6192.08</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">CI.mean.0.95</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">92.33</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.63</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">15917.24</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">7740.46</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">6.27</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">230050837.53</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">std.dev</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">87.98</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">2.5</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center;">15167.43</td>
+</tr>
+  <tr>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:left;  background-color:#f5fafa;">coef.var</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.48</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">0.47</td>
+    <td style="padding:0.2cm; text-align:left; vertical-align:top; text-align:center; background-color:#f5fafa;">1.07</td>
+</tr>
+</table>
+
+<div class="centered">
+
+Πίνακας 11. Σιδηροδρομικές Γέφυρες Μονής γραμμής
+</div>
+
+<p><br></p>
+
+<h5>Ιστόγραμμα Συχνοτήτων και Θηκογράμματα ανά Μέθοδο Κατασκευής</h5>
+
+<p>Στο ιστόγραμμα ο αριθμός των κλάσεων (ή bins) επιλέγεται αυτόματα βάσει της μεθόδου <em>&ldquo;Doane&rdquo;</em>. Στα θηκογράμματα αποτυπώνονται επιπλέον έγχρωμα σημεία που αντιστοιχούν στις παρατηρήσεις κάθε ομάδας. </p>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk knitr_kost_SGE_OGE$geom_histogram_2" alt="plot of chunk knitr_kost_SGE_OGE$geom_histogram_2" style="display:block; margin:auto;" /></p>
+
+<p><br></p>
+
+<blockquote>
+<p>Περαιτέρω ανάλυση των δεδομένων θα εκτελεστεί όταν συλλεγούν περισσότερες παρατηρήσεις στο δείγμα. </p>
+</blockquote>
+
+<p><br></p>
+
+<hr size='3' width='100%' style='text-align: left;'>
+
+<h3>Μεθοδολογία - Παραδοχές Στατιστικής Ανάλυσης</h3>
+
+<p><br>
+Η συμπερασματολογία που διενεργήθηκε προϋποθέτει την τυχαιότητα του εκάστοτε δείγματος που εξετάζεται και την αντιπροσωπευτικότητα για τον πληθυσμό από τον οποίο αυτό προέρχεται. Με τον όρο συμπερασματολογία υποδηλώνεται η χρήση των μεθόδων της Επαγωγικής Στατιστικής, η οποία ασχολείται με τις μεθόδους που καθιστούν δυνατή τη γενίκευση των δειγματοληπτικών συμπερασμάτων και τη θεμελίωση ισχυρισμών οι οποίοι αφορούν το <strong>συνολικό πληθυσμό</strong> από τον οποίο προέρχεται το δείγμα, βοηθώντας τη λήψη σωστών αποφάσεων σε συνθήκες αβεβαιότητας.</p>
+
+<p>Όλοι οι έλεγχοι υποθέσεων έχουν γίνει για επίπεδο σημαντικότητας 5%, δηλαδή η πιθανότητα να απορριφθεί η εκάστοτε βασική υπόθεση από λάθος είναι μικρότερη του 5%, ενώ τα διαστήματα εμπιστοσύνης έχουν υπολογιστεί για 95% αξιοπιστία των εκάστοτε εκτιμήσεων. Στις περιπτώσεις όπου τα προηγούμενα δεν ισχύουν, γίνεται σαφής αναφορά του επιπέδου σημαντικότητας του ελέγχου. Το είδος των ελέγχων που χρησιμοποιούνται είναι τόσο παραμετρικοί όσο και μη-παραμετρικοί, ανάλογα με τα χαρακτηριστικά του εκάστοτε δείγματος. </p>
+
+<p>Πολλές φορές στα αποτελέσματα των ελέγχων μπορεί να αναφέρεται και η τιμή <em>p-value</em>, η οποία ισοδυναμεί με τη δεσμευμένη πιθανότητα του να παρατηρηθεί μια απόκλιση από τη στατιστική τιμή που αντιστοιχεί στην εκάστοτε <em>βασική υπόθεση</em> (\(H_0\)) του ελέγχου, τουλάχιστον τόσο μεγάλη όσο η παρατηρηθείσα στο δείγμα, δεδομένου ότι η βασική υπόθεση ισχύει. Από τη σύγκριση της τιμής αυτής με το προκαθορισμένο επίπεδο σημαντικότητας προκύπτει το αποτέλεσμα του ελέγχου (μη απόρριψη της \(H_0\) ή αποδοχή της εναλλακτικής υπόθεσης \(H_1\)). </p>
+
+<p>Για περισσότερα σχετικά με τους ελέγχους υποθέσεων <a href="http://www.stat-athens.aueb.gr/~jpan/statistiki-skepsi-II/chapter17.pdf" target="_blank">δείτε εδώ</a>.</p>
+
+<h4>Πίνακας Δεδομένων του Δείγματος</h4>
+
+<p>Ο πιο κάτω πίνακας είναι διαδραστικός. Μπορείτε να αναδιατάσσετε τις γραμμές του κάνοντας κλικ στους τίτλους των στηλών του. Επιλεγμένη (με κλικ) γραμμή, εμφανίζεται με διαφορετικό χρώμα φόντου. </p>
+
+<!-- Table generated in R 3.1.0 by googleVis 0.5.2 package -->
+
+<!-- Fri Jul 04 14:00:44 2014 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID1894d5235a () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ 1734,
+"ΣΓ 24",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 109-120",
+"Διπλή",
+107.8,
+4,
+null,
+"<div style=\"text-align: right;\">3.089.063,46</div>",
+"<div style=\"text-align: right;\">28.655,51</div>" 
+],
+[
+ 1065,
+"ΣΓ03 ΡΕΜΑ ΣΕΛΙΑΝΔΡΟΥ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 21-40",
+"Διπλή",
+33,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">329.055,45</div>",
+"<div style=\"text-align: right;\">9.971,38</div>" 
+],
+[
+ 1068,
+"ΣΓ06 ΡΕΜΑ ΑΓΙΩΡΓΙΤΙΚΟ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 21-40",
+"Διπλή",
+30,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">713.282,09</div>",
+"<div style=\"text-align: right;\">23.776,07</div>" 
+],
+[
+ 1042,
+"ΛΑΔΟΠΟΤΑΜΟΥ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 59-75",
+"Διπλή",
+109.5,
+4,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">2.425.303,66</div>",
+"<div style=\"text-align: right;\">22.148,89</div>" 
+],
+[
+ 1710,
+"ΣΓ19  (ΓΕΦΥΡΑ Γ1) ΘΟΛΟΠΟΤΑΜΟΣ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 90-109",
+"Διπλή",
+7.6,
+null,
+null,
+"<div style=\"text-align: right;\">196.757,26</div>",
+"<div style=\"text-align: right;\">25.889,11</div>" 
+],
+[
+ 1713,
+"ΣΓ 20 ΒΡΩΜΟΛΑΓΓΑΔΟ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 90-109",
+"Διπλή",
+7.6,
+null,
+null,
+"<div style=\"text-align: right;\">360.091,33</div>",
+"<div style=\"text-align: right;\">47.380,44</div>" 
+],
+[
+ 1719,
+"ΣΓ 21 (ΓΕΦΥΡΑ Γ4) ΦΟΙΝΙΚΑΣ",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 90-109",
+"Διπλή",
+162.8,
+6,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">3.232.140,70</div>",
+"<div style=\"text-align: right;\">19.853,44</div>" 
+],
+[
+ 1729,
+"ΣΓ 22",
+"ΚΙΑΤΟ - ΠΑΤΡΑ 90-109",
+"Διπλή",
+14,
+null,
+null,
+"<div style=\"text-align: right;\">376.188,18</div>",
+"<div style=\"text-align: right;\">26.870,58</div>" 
+],
+[
+ 768,
+"ΣΓ25",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+207,
+5,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">5.485.209,52</div>",
+"<div style=\"text-align: right;\">26.498,60</div>" 
+],
+[
+ 1099,
+"ΣΓ24",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+109.8,
+5,
+"Ικριώματα",
+"<div style=\"text-align: right;\">1.429.551,48</div>",
+"<div style=\"text-align: right;\">13.019,59</div>" 
+],
+[
+ 1100,
+"ΣΓ27",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+207,
+5,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">3.406.355,04</div>",
+"<div style=\"text-align: right;\">16.455,82</div>" 
+],
+[
+ 673,
+"ΣΓ1 ΜΠΕΚΙΟΡΡΕΜΑΤΟΣ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+27.31,
+2,
+"Ικριώματα",
+"<div style=\"text-align: right;\">198.148,50</div>",
+"<div style=\"text-align: right;\">7.255,53</div>" 
+],
+[
+ 676,
+"ΣΓ3 ΡΕΜΑΤΟΣ ΠΑΠΑΚΥΡΤΣΟΠΟΥΛΟΥ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+117,
+3,
+"Ικριώματα",
+"<div style=\"text-align: right;\">2.166.422,94</div>",
+"<div style=\"text-align: right;\">18.516,44</div>" 
+],
+[
+ 679,
+"ΣΓ5 2Η ΡΕΜΑΤΟΣ ΠΑΠΑΚΥΡΤΣΟΠΟΥΛΟΥ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+40,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">803.891,59</div>",
+"<div style=\"text-align: right;\">20.097,29</div>" 
+],
+[
+ 681,
+"ΣΓ7 ΡΕΜΑΤΟΣ ΠΛΑΤΑΝΑ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+20,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">238.511,73</div>",
+"<div style=\"text-align: right;\">11.925,59</div>" 
+],
+[
+ 683,
+"ΣΓ8 ΔΡΙΜΑΡΙΟΡΡΕΜΑΤΟΣ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+117,
+3,
+"Ικριώματα",
+"<div style=\"text-align: right;\">2.050.129,16</div>",
+"<div style=\"text-align: right;\">17.522,47</div>" 
+],
+[
+ 685,
+"ΣΓ9 ΠΡΟΣΩΡΙΝΗ ΣΤΗΝ ΥΦΙΣΤΑΜΕΝΗ ΓΡΑΜΜΗ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+14.7,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">395.641,23</div>",
+"<div style=\"text-align: right;\">26.914,37</div>" 
+],
+[
+ 686,
+"ΣΓ10 ΑΜΠΕΛΟΡΡΕΜΑΤΟΣ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+522,
+12,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">6.659.283,38</div>",
+"<div style=\"text-align: right;\">12.757,25</div>" 
+],
+[
+ 687,
+"ΣΓ11 ΒΟΪΔΟΡΡΕΜΑΤΟΣ",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+297,
+7,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">3.697.047,77</div>",
+"<div style=\"text-align: right;\">12.447,97</div>" 
+],
+[
+ 689,
+"ΣΓ28",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+342,
+8,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">10.904.404,07</div>",
+"<div style=\"text-align: right;\">31.884,22</div>" 
+],
+[
+ 692,
+"ΣΓ32",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+30.14,
+2,
+"Ικριώματα",
+"<div style=\"text-align: right;\">231.692,80</div>",
+"<div style=\"text-align: right;\">7.687,22</div>" 
+],
+[
+ 698,
+"ΣΓ19",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+18.5,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">212.067,41</div>",
+"<div style=\"text-align: right;\">11.463,10</div>" 
+],
+[
+ 702,
+"ΣΓ12 ΒΟΪΔΟΡΡΕΜΑΤΟΣ (1Η)",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+207,
+5,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">4.235.650,72</div>",
+"<div style=\"text-align: right;\">20.462,08</div>" 
+],
+[
+ 703,
+"ΣΓ13 ΒΟΪΔΟΡΡΕΜΑΤΟΣ (2Η)",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+105,
+3,
+"Ικριώματα",
+"<div style=\"text-align: right;\">2.141.910,76</div>",
+"<div style=\"text-align: right;\">20.399,15</div>" 
+],
+[
+ 704,
+"ΣΓ14 ΒΟΪΔΟΡΡΕΜΑΤΟΣ (3Η)",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+391,
+9,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">6.402.306,98</div>",
+"<div style=\"text-align: right;\">16.374,19</div>" 
+],
+[
+ 705,
+"ΣΓ15 ΒΟΪΔΟΡΡΕΜΑΤΟΣ (4Η)",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+436,
+10,
+"Σταδ.Προώθηση",
+"<div style=\"text-align: right;\">7.719.568,31</div>",
+"<div style=\"text-align: right;\">17.705,43</div>" 
+],
+[
+ 707,
+"ΣΓ16 ΒΟΪΔΟΡΡΕΜΑΤΟΣ (5Η)",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+657,
+15,
+"Προβολοδόμηση",
+"<div style=\"text-align: right;\">12.558.887,06</div>",
+"<div style=\"text-align: right;\">19.115,51</div>" 
+],
+[
+ 766,
+"ΣΓ23Ν",
+"ΛΙΑΝΟΚΛΑΔΙ - ΔΟΜΟΚΟΣ",
+"Διπλή",
+84.8,
+2,
+"Ικριώματα",
+"<div style=\"text-align: right;\">1.744.206,30</div>",
+"<div style=\"text-align: right;\">20.568,47</div>" 
+],
+[
+ 477,
+"ΡΕΜΜΑ ΡΑΧΙΑΝΗΣ (Τ-06)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+34.5,
+1,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">658.487,80</div>",
+"<div style=\"text-align: right;\">19.086,60</div>" 
+],
+[
+ 481,
+"ΡΕΜΜΑ ΖΑΠΑΝΤΗ (Τ-11)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+20,
+1,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">213.139,25</div>",
+"<div style=\"text-align: right;\">10.656,96</div>" 
+],
+[
+ 485,
+"ΡΕΜΜΑ ΒΑΡΕΛΑ (Τ-14)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+15.5,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">107.944,34</div>",
+"<div style=\"text-align: right;\">6.964,15</div>" 
+],
+[
+ 493,
+"ΑΣΩΠΟΣ ΠΟΤΑΜΟΣ (T-20)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+33,
+2,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">777.661,92</div>",
+"<div style=\"text-align: right;\">23.565,51</div>" 
+],
+[
+ 495,
+"ΧΕΙΜΑΡΟΣ ΕΛΙΣΣΩΝΑ (Τ-23)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+20,
+3,
+"Ικριώματα",
+"<div style=\"text-align: right;\">784.399,13</div>",
+"<div style=\"text-align: right;\">39.219,96</div>" 
+],
+[
+ 497,
+"ΡΕΜΜΑ ΚΥΡΙΛΛΟΥ (Τ-25)",
+"ΣΚΑ - ΚΙΑΤΟ",
+"Διπλή",
+15.4,
+1,
+"Ικριώματα",
+"<div style=\"text-align: right;\">606.238,82</div>",
+"<div style=\"text-align: right;\">39.366,16</div>" 
+],
+[
+ 1122,
+"Γ5",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+292,
+4,
+"Προβολοδόμηση",
+"<div style=\"text-align: right;\">13.180.113,95</div>",
+"<div style=\"text-align: right;\">45.137,38</div>" 
+],
+[
+ 456,
+"2 (Γ2)",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+143.2,
+5,
+"Ικριώματα",
+"<div style=\"text-align: right;\">1.023.898,79</div>",
+"<div style=\"text-align: right;\">7.150,13</div>" 
+],
+[
+ 457,
+"3 (Γ3)",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+85.2,
+3,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">771.395,26</div>",
+"<div style=\"text-align: right;\">9.053,93</div>" 
+],
+[
+ 458,
+"4 (Γ4)",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+116,
+4,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">981.210,94</div>",
+"<div style=\"text-align: right;\">8.458,71</div>" 
+],
+[
+ 459,
+"7 (Γ7)",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+288.2,
+10,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">2.156.008,35</div>",
+"<div style=\"text-align: right;\">7.480,94</div>" 
+],
+[
+ 460,
+"8(Γ8)",
+"ΣΙΔ/ΚΗ ΣΥΝΔΕΣΗ ΛΙΜΕΝΟΣ ΙΚΟΝΙΟΥ",
+"Μονή",
+172.2,
+6,
+"Προκατ. Δοκοί",
+"<div style=\"text-align: right;\">1.372.023,25</div>",
+"<div style=\"text-align: right;\">7.967,61</div>" 
+] 
+];
+data.addColumn('number','Κωδ.');
+data.addColumn('string','Περιγραφή');
+data.addColumn('string','Τμήμα');
+data.addColumn('string','Γραμμή');
+data.addColumn('number','Μήκος');
+data.addColumn('number','Αρ. Ανοιγ.');
+data.addColumn('string','Μεθ. Κατ/ής');
+data.addColumn('string','Συν. Κόστος');
+data.addColumn('string','Κόστος / μ.μ.');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID1894d5235a() {
+var data = gvisDataTableID1894d5235a();
+var options = {};
+options["allowHtml"] = true;
+options["width"] =    905;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID1894d5235a')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID1894d5235a);
+})();
+function displayChartTableID1894d5235a() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1894d5235a"></script>
+ 
+
+<!-- divChart -->
+
+<div id="TableID1894d5235a"
+  style="width: 905px; height: 500px;">
+</div>
+
+<p><br></p>
+
+<p style="text-align:right">
+<a href="http://wks465/ergonet/index.php?option=com_content&view=category&id=19&Itemid=55">Επιστροφή στο Μενού Κοστολογικών Αναφορών</a>
+</p>
+
+<p><a href="http://stackexchange.com/users/57010/george-dontas?tab=accounts">
+<img alt="combined Stack Exchange profile for George Dontas" src="http://stackexchange.com/users/flair/10b7e0f379c6459c8f39fa0ebade1adf.png" title="combined Stack Exchange profiles for George Dontas" height="58" width="208">
+</a></p>
+
+</body>
+
+</html>
