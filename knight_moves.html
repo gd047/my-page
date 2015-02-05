@@ -193,7 +193,7 @@ n.steps &lt;- function(){
 n&lt;-10000
 res&lt;-replicate(n,n.steps())
 mea &lt;- mean(res)</code></pre>
-<p>Από τα παραπάνω προκύπτει μέση τιμή ίση μέ: <strong>167.9142</strong>. <br><br></p>
+<p>Από τα παραπάνω προκύπτει μέση τιμή ίση μέ: <strong>166.2868</strong>. <br><br></p>
 </div>
 <div id="-----------" class="section level4">
 <h4>Μια από τις διαδρομές, όπου ο ίππος καθυστέρησε να επιστρέψει στην αφετηρία</h4>
@@ -208,7 +208,7 @@ p + geom_path(aes(colour = col,size = col),alpha=.1) +
   scale_colour_gradient(low=&quot;black&quot;) +
   theme_bw()</code></pre>
 <p><img src="knight_moves_files/figure-html/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="672" style="display:block; margin:auto;" /></p>
-<p>Όσο πιο θαλασσιά και παχιά η γραμμή τόσο σε μεταγενέστερο στάδιο έγινε η κίνηση. Στην περίπτωση αυτή χρειάστηκαν <strong>1135</strong> κινήσεις για να επιστρέψει ο ίππος στο τετράγωνο (1,1). Τα τετράγωνα παριστάνονται ως σημεία στο επίπεδο με συντεταγμένες από (1,1) έως (8,8) <br><br></p>
+<p>Όσο πιο θαλασσιά και παχιά η γραμμή τόσο σε μεταγενέστερο στάδιο έγινε η κίνηση. Στην περίπτωση αυτή χρειάστηκαν <strong>1425</strong> κινήσεις για να επιστρέψει ο ίππος στο τετράγωνο (1,1). Τα τετράγωνα παριστάνονται ως σημεία στο επίπεδο με συντεταγμένες από (1,1) έως (8,8) <br><br></p>
 </div>
 <div id="---------" class="section level4">
 <h4>Κατανομή του αριθμού των βημάτων που απαιτήθηκαν έως την επιστροφή</h4>
@@ -229,8 +229,6 @@ m + geom_histogram(aes(fill = ..count..)) +
 <div id="-markov-chain" class="section level4">
 <h4>Χρήση Markov chain</h4>
 <p>Ο βέλτιστος όμως τρόπος λύσης (με χρήση υπολογιστή) είναι ο υπολογισμός της <span class="math">\(P(n)\)</span>, (πιθανότητα επιστροφής μετά από <span class="math">\(n\)</span> κινήσεις), ο οποίος εκτός από ακριβής είναι και πολύ ταχύτερος από την προσομοίωση. Βέβαια δεν μπορεί να υπολογιστεί το <span class="math">\(\sum_n n \cdot P(n)\)</span>, γιατί το άθροισμα έχει άπειρους όρους. Ορίζοντας τον <span class="math">\(64 \times 64\)</span> transition probability matrix και με λίγο κώδικα, μπορεί όμως να εκτιμηθεί έως τον επιθυμητό βαθμό ακρίβειας.</p>
-<p>Η βέλτιστη λύση βέβαια είναι η ακριβής μαθηματική επίλυση, η οποία αντιμετωπίζει το πρόβλημα ως τυχαίο περίπατο σε συνεκτικό γράφο. Οι κορυφές είναι τα τετράγωνα της σκακιέρας και οι ακμές αντιπροσωπεύουν τις δυνατές μετακινήσεις. Η γενική λύση είναι <span class="math">\(2Ν/k\)</span>, όπου <span class="math">\(Ν\)</span> ο αριθμός των ακμών του γράφου και <span class="math">\(k\)</span> o αριθμός των ακμών που συνδέονται με το σημείο εκκίνησης. Στην περίπτωσή μας <span class="math">\(Ν=168\)</span> και <span class="math">\(k=2\)</span>.</p>
-<p>Για πλήρη επεξήγηση της μαθηματικής επίλυσης, δείτε το Κεφ. 3, σελ 9 εδώ: <a href="http://www.stat.berkeley.edu/~aldous/RWG/book.html">http://www.stat.berkeley.edu/~aldous/RWG/book.html</a></p>
 <pre class="r"><code># create the transition matrix
 x &lt;- c(1*8+2*1,
        1*8-2*1,
@@ -302,6 +300,8 @@ while(1){
 # }
 # sum(pr * seq(2,n))</code></pre>
 <p>Από τα παραπάνω προκύπτει η ακριβής μέση τιμή, που είναι ίση μέ: <strong>168</strong>. <br></p>
+<p>Η βέλτιστη λύση βέβαια είναι η ακριβής μαθηματική επίλυση, η οποία αντιμετωπίζει το πρόβλημα ως τυχαίο περίπατο σε συνεκτικό γράφο. Οι κορυφές είναι τα τετράγωνα της σκακιέρας και οι ακμές αντιπροσωπεύουν τις δυνατές μετακινήσεις. Η γενική λύση είναι <span class="math">\(2Ν/k\)</span>, όπου <span class="math">\(Ν\)</span> ο αριθμός των ακμών του γράφου και <span class="math">\(k\)</span> o αριθμός των ακμών που συνδέονται με το σημείο εκκίνησης. Στην περίπτωσή μας <span class="math">\(Ν=168\)</span> ( <code>length(tra.m[tra.m&gt;0])/2</code> ) και <span class="math">\(k=2\)</span>.</p>
+<p>Για πλήρη επεξήγηση της μαθηματικής επίλυσης, δείτε το Κεφ. 3, σελ 9 εδώ: <a href="http://www.stat.berkeley.edu/~aldous/RWG/book.html">http://www.stat.berkeley.edu/~aldous/RWG/book.html</a></p>
 </div>
 </div>
 <div id="-------------" class="section level3">
