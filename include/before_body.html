@@ -1,0 +1,171 @@
+<style type="text/css">
+
+.footer-margin-top{
+    margin-top: 0px;
+  }
+  
+.header-margin-top{
+    margin-top: 3px;
+  }
+
+table.center {
+    width: auto;
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  
+.table td:first-child {
+    font-weight: bold;
+}
+
+/*####### X-MAS BACKGROUND addition ######################################
+.brand {
+    position: relative;
+    display: inline-block
+}
+
+.brand:before {
+    margin-left: -16px;
+    margin-top: -5px;
+    position: absolute;
+    content:"";
+    width:100%;
+    height:100%;
+    background-image: url('images/cornerhat.png');
+    background-repeat:no-repeat; 
+    background-position: 0px 0px;
+    background-size: 20% 70%;
+}
+
+/*##############################################################*/
+
+
+
+/* ********************************************** */
+/* Darken buttons. The following were foun here */
+/* http://bootstrapbay.com/blog/css-transitions-buttons/ */
+/* ********************************************** 
+
+body > button {
+    background: #428BCA;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 60px;
+    width: 150px;
+    line-height: 60px;
+    margin: 25px 25px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background: #3071A9
+}
+
+********************************************** */
+
+</style>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container header-margin-top">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="index.html">ΕΡΓΟΣΕ / ΤΕΧΚ</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="index.html">
+          <i class="fa fa-home fa-lg"></i>
+          Αρχική</a></li>
+          <li class="dropdown">
+            <a href="authoring" class="dropdown-toggle" data-toggle="dropdown">Αναφορές Προόδου <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+               <li class="nav-header">Εργα</li>
+               <li><a href="authoring_symv_gantt.html">Xρονική/Κοστολογική Εξέλιξη Συμβ. Κατασκευής</a></li>
+               <li><a href="authoring_cash_flow_total.html">Ετήσιες Πιστοποιήσεις & Προβλέψεις (Σύνολα)</a></li>
+               <li><a href="authoring_cash_flow.html">Ετήσιες Πιστοποιήσεις & Προβλέψεις (Κατασκευές)</a></li>
+               <li class="divider"></li>
+               <li class="nav-header">Δημοπρατησεις</li>
+               <li><a href="authoring_tender_schedule.html">Ετήσιο Πρόγραμμα Δημοπρατήσεων</a></li>
+               <li><a href="#">Πρόγραμμα Δημοπρατήσεων Προηγ. Έτους</a></li> <!-- authoring_prior_tender_schedule.html -->
+               <li class="divider"></li>
+               <li class="nav-header">Απαλλοτριωσεις</li>
+               <li><a href="authoring_stadia_apalotrioseon.html"></i>Gantt Απαλλοτριώσεων</a></li>
+               <li class="divider"></li>
+               <li class="nav-header">Εγγραφα</li>
+               <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Αναφορές Χρόνου/Κόστους</a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-header">Χρονου</li>
+                        <li><a href="Time.pdf"><i class="fa fa-file-pdf-o"></i> Χρονικός Προγ/μός Έργων</a></li>
+                        <li class="divider"></li>
+                        <li class="nav-header">Κοστους</li>
+                        <li><a href="Cost.pdf"><i class="fa fa-file-pdf-o"></i> Κοστολογικός Προγ/μός Έργων</a></li>
+                        <li><a href="Cost-Groups_vs_Target.pdf"><i class="fa fa-file-pdf-o"></i> Σύγκριση Στόχου με Εκτιμήσεις</a></li>
+                        <li><a href="dev_report.pdf"><i class="fa fa-file-pdf-o"></i> Αναφορά Αποκλίσεων</a></li>
+                        <li class="divider"></li>
+                        <li class="nav-header">Αναλυση Δεδομενων</li>
+                        <li><a href="Time_overruns.pdf"><i class="fa fa-file-pdf-o"></i> Ανάλυση Δεδομένων Παρατάσεων / Αναθεωρήσεων</a></li>
+                    </ul>
+               </li>
+               <li><a href="Epiteliki_anafora.pdf"><i class="fa fa-file-pdf-o"></i> Επιτελική Αναφορά</a></li>
+               <!-- <li><a href="authoring_files.html">Αρχεία</a></li> ##### http://tutorialzine.com/2014/09/cute-file-browser-jquery-ajax-php --> 
+               <li class="divider"></li>
+               <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Διαχείριση Ιστοτόπου</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://bitbucket.org/gd047/texk"><i class="fa fa-external-link"></i> Διαχείριση Πηγαίου Κώδικα</a></li>
+                        <li><a href="https://www.shinyapps.io/admin/#/dashboard"><i class="fa fa-external-link"></i> Διαχείριση Εφαρμογών ShinyApps</a></li>
+                        <li><a href="https://texk.slack.com"><i class="fa fa-external-link"></i> Πλατφόρμα Επικοινωνίας ΤΕΧΚ</a></li>
+                        <li><a href="https://texk.disqus.com/admin/moderate/"><i class="fa fa-external-link"></i> Διαχείριση Σχολίων</a></li>
+                    </ul>
+               </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="formats" class="dropdown-toggle" data-toggle="dropdown">Τεχνικά Αντικείμενα <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+               <li><a href="EPD_format.html">Επιδομή Γραμμής</a></li>                                 <!-- EPD_format.html -->
+               <li><a href="KDO_format.html">Κάτω Διαβάσεις Οδού</a></li>                             <!-- KDO_format.html -->
+               <li><a href="ADO_OGE_format.html">Οδικές Γέφυρες - Α.Δ. Οδού</a></li>    <!-- ADO_OGE_format.html -->
+               <li><a href="TLD_format.html">Σηματοδότηση / Τηλεδιοίκηση</a></li>       <!-- TLD_format.html -->
+               <li><a href="SGE_OGE_format.html">Σιδηροδρομικές Γέφυρες</a></li>        <!-- SGE_OGE_format.html -->
+               <li><a href="TUN_2_format.html">Σιδηροδρομικές Σήραγγες</a></li>         <!-- TUN_2_format.html -->
+            </ul>
+          </li>
+           <li class="dropdown">
+            <a href="developer" class="dropdown-toggle" data-toggle="dropdown">Άρθρα Τιμολογίου <b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+               <li class="nav-header">Χωματουργικα</li>
+               <li><a href="developer_ODO_1530_Kataskevi_sid_epixomaton.html">Ν.ΟΔΟ 1530 - Κατασκευή Σιδηροδρομικών Επιχωμάτων</a></li>
+               <li><a href="developer_ODO_1530_Ypostr_epid_strosi_diamor.html">Ν.ΟΔΟ 1530 - Κατασκευή Υποστρ. Επιδομής και Στρ. Διαμόρφωσης</a></li> <!-- developer_ODO_1530_Ypostr_epid_strosi_diamor.html -->
+               <li><a href="developer_ODO_1510_Prom_daneion_sid_epix.html">Ν.ΟΔΟ 1510 - Προμήθεια Δανείων Σιδ/κών Επιχωμάτων</a></li> <!-- developer_ODO_1510_Prom_daneion_sid_epix.html -->
+               <li class="divider"></li>
+               <li class="nav-header">Τεχνικα Εργα</li>
+               <li><a href="developer_ODO_2412_Stegan_memvr_2mm_CC.html">Ν.ΟΔΟ 2412 - Στεγανωτική Μεμβράνη Πάχους > 2χλστ για C&C</a></li> <!-- developer_ODO_2412_Stegan_memvr_2mm_CC.html -->
+               <li><a href="developer_ODO_2551_C_30_37_monimis_ependysis.html">Ν.ΟΔΟ 2551 - Οπλισμένο Σκυρόδεμα C30/37 Εσωτ. Επένδ. Σηράγγων</a></li> <!-- developer_ODO_2551_C_30_37_monimis_ependysis.html -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <a class="btn btn-primary tip" href="https://bitbucket.org/gd047/texk" data-title="BitBucket" data-content="Σε αυτή τη διαδικτυακή υπηρεσία διατηρείται ο κώδικας του ιστότοπου και όλες οι αναθεωρήσεις του, η διαχείριση των οποίων γίνεται από το σύστημα <a href='http://git-scm.com/'>Git</a>.">
+            <i class="fa fa-bitbucket-square fa-lg"></i>
+            Bitbucket
+          </a>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+<!--
+          <a class="btn btn-primary tip" data-toggle="tooltip" data-placement="bottom" title="Online code repo for this website" href="https://bitbucket.org/gd047/texk">
+-->
+

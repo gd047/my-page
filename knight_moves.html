@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Knight’s random walk</title>
+
+<script src="libs/jquery-1.11.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="libs/bootstrap-2.3.2/css/cerulean.min.css" rel="stylesheet" />
+<link href="libs/bootstrap-2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+<!--
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,greek' rel='stylesheet' type='text/css'>
+-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,greek' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="libs/font-awesome-4.1.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="libs/foonav-master/dist/foonav.min.css" />
+
+<link rel="stylesheet" href="libs/webui-popover-master/src/jquery.webui-popover.css">
+
+
+
+<script src="libs/webui-popover-master/src/jquery.webui-popover.js"></script>
+
+<script src="libs/foonav-master/dist/foonav.min.js"></script>
+
+
+
+<style type="text/css">
+
+* {
+  font-family: 'Open Sans', sans-serif; 
+}
+
+
+/* padding for bootstrap navbar */
+body {
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+}
+
+/* offset scroll position for anchor links (for fixed navbar)  */
+@media (min-width: 980px) {
+  .footnoteRef {
+    padding-top: 60px;
+    margin-top: -60px;   
+  }    
+    
+  .section h1 {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+  .section h2 {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+  .section h3 {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+  .section h4 {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+}
+
+
+/* don't use link color in navbar */
+.dropdown-menu>li>a {
+  color: black;
+}
+
+/* some padding for disqus */
+#disqus_thread {
+  margin-top: 45px;
+}
+
+</style>
+
+
+
+
+
+<!--
+<script src="libs/tablesorter-master/js/jquery.tablesorter.js"></script>
+<script src="libs/tablesorter-master/js/jquery.tablesorter.widgets.js"></script>
+-->
+
+<script type="text/javascript" src="my_code.js"></script>
+
+<!--
+<script type="text/javascript">
+  $(function() {
+    $(".tip").tooltip();
+  });
+</script>
+-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="libs/highlight/textmate.css"
+      type="text/css" />
+<script src="libs/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<div class="container-fluid main-container">
+
+
+<div id="header">
+<h1 class="title">Knight’s random walk</h1>
+</div>
+
+
+<p><br></p>
+<div id="-----" class="section level3">
+<h3>Τυχαία κίνηση ίππου σε άδεια σκακιέρα</h3>
+<p>Τοποθετήστε έναν ίππο σε μια γωνία μιας κατά τα άλλα άδειας σκακιέρας. Μετακινήστε τον ίππο τυχαία, επιλέγοντας σε κάθε κίνηση, μία εκ των δυνατών θέσεων που μπορεί να μεταβεί (με ίση πιθανότητα). Ποιος είναι ο μέσος αριθμός των κινήσεων μέχρι ο ίππος να επιστρέψει στο αρχικό τετράγωνο; <br></p>
+<div class="section level4">
+<h4>Προσομοίωση</h4>
+<p>H πιο απλή λύση είναι η προσομοίωση, που όμως έχει μειωμένη ακρίβεια (αλλά είναι πολύ καλύτερη από το τίποτα). Ένας τρόπος αντιμετώπισης φαίνεται παρακάτω.</p>
+<pre class="r"><code>suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggthemes))
+suppressPackageStartupMessages(library(SparseM))
+suppressPackageStartupMessages(library(matlab))
+
+
+dm &lt;- matrix(c(rep(c(2,1,-2,-1),each=2),rep(c(-1,1,-2,2),2)),ncol=2)
+
+move &lt;- function(cur.pos){
+    tot.pos &lt;- matrix(rep(cur.pos,each=8),ncol=2) + dm
+    tot.pos &lt;- tot.pos[tot.pos[,1] %in% 1:8 &amp; tot.pos[,2] %in% 1:8,]
+    tot.pos[sample.int(nrow(tot.pos),1),]
+}
+
+my.samples &lt;- list()
+
+n.steps &lt;- function(){
+    counter &lt;- 0
+    steps &lt;- matrix(c(1,1),ncol=2)
+    pos &lt;- c(1,1)
+    repeat {
+        counter &lt;- counter + 1
+        pos &lt;- move(pos)
+        steps &lt;- rbind(steps,pos)
+        if (identical(pos,c(1,1))){
+            my.samples &lt;&lt;- c(my.samples,list(steps))
+            return(counter)
+            break
+        }
+    }   
+}
+
+
+n&lt;-1000
+res&lt;-replicate(n,n.steps())
+mea &lt;- mean(res)</code></pre>
+<p>Από τα παραπάνω προκύπτει μέση τιμή ίση μέ: <strong>152.852</strong>. <br></p>
+</div>
+<div id="-----------" class="section level4">
+<h4>Μια από τις διαδρομές, όπου ο ίππος καθυστέρησε να επιστρέψει στην αφετηρία</h4>
+<pre class="r"><code>res.1000 &lt;- my.samples[[which(lapply(my.samples,nrow)&gt;1000)[1]]]
+df &lt;- as.data.frame(res.1000)
+rownames(df)&lt;- 1:nrow(res.1000)
+df$col &lt;- 1:nrow(res.1000)
+
+p &lt;- ggplot(df, aes(V1, V2))
+p + geom_path(aes(colour = col,size = col),alpha=.1) + 
+  scale_size(range = c(.1, 3.5)) + 
+  scale_colour_gradient(low=&quot;black&quot;) +
+  theme_bw()</code></pre>
+<p><img src="knight_moves_files/figure-html/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="672" style="display:block; margin:auto;" /></p>
+<p>Όσο πιο θαλασσιά και παχιά η γραμμή τόσο σε μεταγενέστερο στάδιο έγινε η κίνηση. Στην περίπτωση αυτή χρειάστηκαν <strong>1093</strong> κινήσεις για να επιστρέψει ο ίππος στο τετράγωνο (1,1). Τα τετράγωνα παριστάνονται ως σημεία στο επίπεδο με συντεταγμένες από (1,1) έως (8,8) <br></p>
+</div>
+<div id="---------" class="section level4">
+<h4>Κατανομή του αριθμού των βημάτων που απαιτήθηκαν έως την επιστροφή</h4>
+<pre class="r"><code>m &lt;- ggplot(data.frame(Moves=res), aes(x=Moves))
+m + geom_histogram(aes(fill = ..count..)) +
+    scale_fill_gradient(&quot;Count&quot;, low = &quot;#55752f&quot;, high = &quot;#e37e00&quot;, breaks = c(0,2000,4000),labels=c(&quot;0&quot;,&quot;2000&quot;,&quot;4000&quot;)) +
+    annotate(&quot;text&quot;, label = paste(&quot;Mean:&quot;,mea), x = 1500, y = .3*n, size = 4, colour = &quot;#E7298A&quot;) +
+    theme_stata() +
+    ggtitle(&quot;Κατανομή # κινήσεων μέχρι την επιστροφή του ίππου στην αφετηρία&quot;) + 
+    theme(legend.position = &quot;bottom&quot;, 
+          axis.text.y=element_text(angle=0,hjust=1.3),
+          axis.title.x=element_text(vjust=0.3),
+          legend.text = element_text(size = rel(.85))
+          )</code></pre>
+<p><img src="knight_moves_files/figure-html/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="672" style="display:block; margin:auto;" /></p>
+<p><br></p>
+</div>
+<div id="-markov-chain" class="section level4">
+<h4>Χρήση Markov chain</h4>
+<p>Ο βέλτιστος όμως τρόπος λύσης (με χρήση υπολογιστή) είναι ο υπολογισμός της <span class="math">\(P(n)\)</span>, (πιθανότητα επιστροφής μετά από <span class="math">\(n\)</span> κινήσεις), ο οποίος εκτός από ακριβής είναι και πολύ ταχύτερος από την προσομοίωση. Βέβαια δεν μπορεί να υπολογιστεί το <span class="math">\(\sum_n n \cdot P(n)\)</span>, γιατί το άθροισμα έχει άπειρους όρους. Ορίζοντας τον <span class="math">\(64 \times 64\)</span> transition probability matrix και με λίγο κώδικα, μπορεί όμως να εκτιμηθεί έως τον επιθυμητό βαθμό ακρίβειας.</p>
+<p>Για πλήρη επεξήγηση της μαθηματικής επίλυσης, δείτε το Κεφ. 3, σελ 9 εδώ: <a href="http://www.stat.berkeley.edu/~aldous/RWG/book.html">http://www.stat.berkeley.edu/~aldous/RWG/book.html</a></p>
+<pre class="r"><code># create the transition matrix
+x &lt;- c(1*8+2*1,
+       1*8-2*1,
+       -1*8+2*1,
+       -1*8-2*1,
+       2*8+1*1,
+       2*8-1*1,
+       -2*8+1*1,
+       -2*8-1*1
+)
+
+tra.m &lt;- matrix(rep(0,64*64),nrow=64)
+
+for (i in 1:64){
+  init.pos &lt;- i+x
+  # remove negative and &gt;64
+  init.pos &lt;- init.pos[init.pos &gt; 0 &amp; init.pos &lt;= 64]
+  if (i %in% c(1,1+1:7*8)){
+    init.pos &lt;- init.pos[!init.pos %in% c(7,7+1:7*8) &amp; !init.pos %in% c(8,8+1:7*8)]
+  }
+  if (i %in% c(2,2+1:7*8)){
+    init.pos &lt;- init.pos[!init.pos %in% c(8,8+1:7*8)]
+  }
+  if (i %in% c(7,7+1:7*8)){
+    init.pos &lt;- init.pos[!init.pos %in% c(1,1+1:7*8)]
+  }
+  if (i %in% c(8,8+1:7*8)){
+    init.pos &lt;- init.pos[!init.pos %in% c(1,1+1:7*8) &amp; !init.pos %in% c(2,2+1:7*8)]
+  }
+  
+  n &lt;- length(init.pos)
+  tra.m[i,init.pos] &lt;- 1/n
+}
+
+
+
+A.csr &lt;- as.matrix.csr(tra.m)
+image(A.csr)</code></pre>
+<p><img src="knight_moves_files/figure-html/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="672" style="display:block; margin:auto;" /></p>
+<p>Στο πιο πάνω γράφημα φαίνεται η δομή του πίνακα μετάβασης, με τις θέσεις των μη μηδενικών στοιχείων.</p>
+<p>Με βάση θεώρημα που λέει ότι η πιθανότητα η αλυσίδα να βρίσκεται στη θέση <span class="math">\(i\)</span> μετά από <span class="math">\(n\)</span> βήματα προκύπτει από τη <span class="math">\(n\)</span>-οστή δύναμη του transition matrix, έχουμε:</p>
+<pre class="r"><code>n=0 # iteration count
+s=zeros(64,1)
+s[1]=1 # s(1)=Prob(@home) at iteration n
+w=0 # running sum of n*P(n)
+
+while(1){
+  n=n+1
+  s=tra.m %*% s
+  #print(s[1])
+  w=w+s[1]*n
+  s[1]=0
+  if (max(s)&lt;1e-10)
+    break
+}
+
+# Άλλος τρόπος
+# pr &lt;- vector()
+# m &lt;- tra.m
+# n &lt;- 10000
+# for (j in seq(2,n)){
+#   if(j == 2) {
+#     m &lt;- m %*% tra.m 
+#   } else {
+#     m &lt;- m %*% tra.m
+#   }
+#   pr &lt;- c(pr,m[1,1])
+#   m[1,1] &lt;- 0
+# }
+# sum(pr * seq(2,n))</code></pre>
+<p>Από τα παραπάνω προκύπτει η ακριβής μέση τιμή, που είναι ίση μέ: <strong>168</strong>.</p>
+</div>
+</div>
+<div id="-------------" class="section level3">
+<h3>Κίνησε τον ίππο ώστε να περάσει μια μόνο φορά από κάθε τετράγωνο της σκακιέρας</h3>
+<p>O Leonhard Euler (1707-1783) είχε βρει ένα τρόπο μετακίνησης του αλόγου στο σκάκι, έτσι ώστε να περάσει από όλα τα τετράγωνα μία και μόνο φορά. Μπορείτε να βρείτε μια τέτοια διαδοχή κινήσεων, ξεκινώντας από το τετράγωνο Α1; <br></p>
+<div id="----" class="section level4">
+<h4>Υπολογισμός με χρήση αναδρομικής συνάρτησης</h4>
+<p>Παρακάτω δίνεται ένας τρόπος εύρεσης μιας διαδοχής κινήσεων του ίππου, ώστε να περάσει από όλα τα τετράγωνα της σκακιέρας μια και μόνο φορά, με τη βοήθεια μιας αναδρομική συνάρτηση:</p>
+<pre class="r"><code>source_node = 1
+currentroute = vector()
+currentroute = c(currentroute,source_node)
+
+res.list &lt;- list()
+
+move_to_next &lt;- function(newnode,prox_table,currentroute){
+  
+  if (length(currentroute) == 64) {
+    return(paste(&quot;FINISHED.&quot;,currentroute))
+  } else {
+    newnode_proximities = which(prox_table[newnode,]&gt;0)
+    num_loops = length(which(prox_table[newnode,]&gt;0))
+    
+    # IF THERE IS NOT ALREADY A BLOCKED SQUARE proceed to for loop
+    free.sq &lt;- setdiff(1:64,currentroute)
+    free.table &lt;- prox_table[free.sq,free.sq]
+    #colnames(free.table) &lt;- free.sq
+    
+    # add current square to starting squares
+    free.table &lt;- rbind(free.table,prox_table[newnode,free.sq])
+    #rownames(free.table) &lt;- c(free.sq,newnode)
+    
+    if (all(colSums(free.table)&gt;0)) {
+      for (i in 1:num_loops){
+        source_node = newnode_proximities[i]
+        if (!(source_node %in% currentroute) &amp; (length(res.list)==0)){
+          myroute &lt;- c(currentroute,source_node)
+          if (length(myroute)==64){
+            res.list[[length(res.list)+1]] &lt;&lt;- myroute #;print(length(res.list))
+          } else {move_to_next(source_node,prox_table,myroute)}
+          #if (length(myroute)&gt;62){print(myroute)}
+          
+        }
+      }
+    }
+  }   
+}  
+
+
+move_to_next(source_node,tra.m,currentroute)
+
+# Convert results to chess coordinates
+chess.coord &lt;- function(x){
+  num &lt;- 1 + (x-1) %/% 8
+  let &lt;- ifelse(x%%8 == 0,LETTERS[8],LETTERS[x%%8])
+  return(paste0(let,num))
+}
+
+#sapply(res.list[[1]],chess.coord)</code></pre>
+<p>Η πρώτη λύση που υπολογίστηκε από τον αλγόριθμο είναι η : <strong>A1, C2, E1, G2, E3, D1, B2, D3, C1, A2, C3, B1, D2, F1, H2, F3, G1, E2, G3, H1, F2, H3, F4, D5, B4, A6, C5, B3, D4, B5, A3, C4, A5, B7, D6, E4, G5, H7, F8, E6, D8, F7, H8, G6, H4, F5, H6, G4, E5, D7, B8, C6, A7, C8, E7, G8, F6, H5, G7, E8, C7, A8, B6, A4</strong>.</p>
+<p>Ο λόγος για τον οποίο <strong><em>ΔΕΝ</em></strong> θα πρέπει να περιμένει κανείς να ολοκληρωθεί η συνάρτηση που υπολογίζει τις διαδρομές, περιγράφεται αναλυτικά εδώ: <a href="http://www.josiahland.com/archives/781">http://www.josiahland.com/archives/781</a></p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
