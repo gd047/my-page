@@ -197,7 +197,7 @@ mea &lt;- mean(res)</code></pre>
 <p>Από τα παραπάνω προκύπτει μέση τιμή ίση μέ: <strong>166.2868</strong>. <br><br></p>
 </div>
 <div id="-----------" class="section level4">
-<h4>Μια από τις διαδρομές, όπου ο ίππος καθυστέρησε να επιστρέψει στην αφετηρία</h4>
+<h4>Παράδειγμα διαδρομής, όπου ο ίππος καθυστέρησε να επιστρέψει στην αφετηρία</h4>
 <pre class="r"><code>res.1000 &lt;- my.samples[[which(lapply(my.samples,nrow)&gt;1000)[1]]]
 df &lt;- as.data.frame(res.1000)
 rownames(df)&lt;- 1:nrow(res.1000)
