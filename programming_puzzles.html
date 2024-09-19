@@ -3182,7 +3182,115 @@ get_nondecreasing_routes2 &lt;- function(digits, starting_digit = 1, allowed_mov
 }
 
 # Call the function with the desired number of digits (7) and allowed moves (1:9)
-result &lt;- get_nondecreasing_routes2(7, allowed_moves = 1:9)</code></pre>
+result &lt;- get_nondecreasing_routes2(7, allowed_moves = 1:9)
+
+
+## 59. ΚΙΝΗΣΕΙΣ ΠΥΡΓΟΥ σε 3x3 πλέγμα. ####
+
+# Σε ένα τετράγωνο πλέγμα 3x3, είναι δυνατό να τοποθετoύμε τους αριθμούς από το 1 έως το 9 με τέτοιο τρόπο ώστε ένας πύργος σκακιού να μπορεί να επισκεφτεί διαδοχικά τα εννέα τετράγωνα με τη σειρά των αριθμών τους χωρίς, ποτέ να επιστρέψει στο ίδιο τετράγωνο δεύτερη φορά. Το σχήμα απεικονίζει μια τέτοια διαδρομή. Πόσες υπάρχουν;
+
+# (εννοείται ότι μια λύση που προκύπτει από κάθε είδους περιστροφή άλλης, δεν θεωρείται διαφορετική λύση) 
+# https://eisatopon.blogspot.com/2024/09/blog-post_82.html
+# https://x.com/gd047/status/1836362270651056609
+
+### Θεωρητική λύση ####
+
+# Αγνοώντας περιστροφές, το 1 μπορεί να βρίσκεται μόνο σε μία γωνία
+# (έστω πάνω αριστερά) ή στο κέντρο.
+# 
+# Α) το 1 πάνω αριστερά,το 2 δεξιά του (αγνοούμε το 2 προς τα κάτω γιατί η λύση θα προκύπτει από περιστροφή), το 3 στην ίδια ευθεία, το 4 από κάτω και
+# 
+# Α1) το 5 στο κέντρο
+# 
+# 1 2 3
+# 6 5 4
+# 7 8 9
+# 
+# Α2) το 5 κάτω δεξιά. Εδώ εξαρτάται αν μετά το 6 κινηθούμε προς το κέντρο ή όχι
+# 
+# 1 2 3
+# 8 7 4
+# 9 6 5
+# 
+# 1 2 3
+# 8 9 4
+# 7 6 5
+# 
+# Β) το 1 πάνω αριστερά,το 2 δεξιά του και το 3 στο κέντρο
+# 
+# 1 2 9
+# 4 3 8
+# 5 6 7
+# 
+# Γ) Το 1 στο κέντρο
+# 
+# 9 2 3
+# 8 1 4
+# 7 6 5
+# 
+# Για κάθε μία από αυτές τις λύσεις μπορούν να προκύψουν άλλες 7 από περιστροφή ή κατοπτρισμό. Άρα, αν θεωρήσουμε αυτές τις λύσεις ξεχωριστές, το πλήθος των λύσεων είναι 5*8=40.
+
+### Προγραμ/κή λύση ####
+library(gtools)
+
+# Συνάρτηση που ελέγχει αν ο πύργος μπορεί να κάνει νόμιμη κίνηση χωρίς να διασχίζει άλλα τετράγωνα
+is_valid_rook_path &lt;- function(grid) {
+  # Βρίσκουμε τις συντεταγμένες του κάθε αριθμού στο grid
+  coords &lt;- matrix(NA, nrow = 9, ncol = 2)
+  for (i in 1:9) {
+    coords[i, ] &lt;- which(grid == i, arr.ind = TRUE)
+  }
+  
+  # Ελέγχουμε αν κάθε διαδοχική κίνηση είναι έγκυρη
+  for (i in 1:8) {
+    # Έλεγχος αν βρίσκονται στην ίδια γραμμή
+    if (coords[i, 1] == coords[i+1, 1]) {
+      min_col &lt;- min(coords[i, 2], coords[i+1, 2])
+      max_col &lt;- max(coords[i, 2], coords[i+1, 2])
+      # Έλεγχος μόνο αν οι θέσεις δεν είναι γειτονικές
+      if (max_col - min_col &gt; 1) {
+        for (j in (min_col + 1):(max_col - 1)) {
+          if (grid[coords[i, 1], j] &lt; min(i, i+1) || grid[coords[i, 1], j] &gt; max(i, i+1)) {
+            return(FALSE)
+          }
+        }
+      }
+    } 
+    # Έλεγχος αν βρίσκονται στην ίδια στήλη
+    else if (coords[i, 2] == coords[i+1, 2]) {
+      min_row &lt;- min(coords[i, 1], coords[i+1, 1])
+      max_row &lt;- max(coords[i, 1], coords[i+1, 1])
+      # Έλεγχος μόνο αν οι θέσεις δεν είναι γειτονικές
+      if (max_row - min_row &gt; 1) {
+        for (j in (min_row + 1):(max_row - 1)) {
+          if (grid[j, coords[i, 2]] &lt; min(i, i+1) || grid[j, coords[i, 2]] &gt; max(i, i+1)) {
+            return(FALSE)
+          }
+        }
+      }
+    } else {
+      # Αν δεν είναι στην ίδια γραμμή ή στήλη, η κίνηση είναι άκυρη
+      return(FALSE)
+    }
+  }
+  
+  return(TRUE)
+}
+
+all_permutations &lt;- permutations(9, 9, 1:9)
+
+# Έλεγχος κάθε permutation αν είναι έγκυρη διαδρομή πύργου
+valid_grids &lt;- list()
+for (i in 1:nrow(all_permutations)) {
+  grid &lt;- matrix(all_permutations[i, ], nrow = 3, byrow = TRUE)
+  if (is_valid_rook_path(grid)) {
+    valid_grids[[length(valid_grids) + 1]] &lt;- grid
+    print(grid)
+  }
+}
+
+# Εμφάνιση του αριθμού των αποδεκτών πινάκων
+length(valid_grids)</code></pre>
 
 
 
