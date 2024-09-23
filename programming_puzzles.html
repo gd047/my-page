@@ -11,7 +11,7 @@
 
 <meta name="author" content="gd" />
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-09-21" />
 
 <title>programming_puzzles</title>
 
@@ -106,8 +106,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -115,9 +115,16 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -164,7 +171,7 @@ pre code {
 
 <h1 class="title toc-ignore">programming_puzzles</h1>
 <h4 class="author">gd</h4>
-<h4 class="date">2024-04-09</h4>
+<h4 class="date">2024-09-21</h4>
 
 </div>
 
@@ -3231,66 +3238,63 @@ result &lt;- get_nondecreasing_routes2(7, allowed_moves = 1:9)
 # Για κάθε μία από αυτές τις λύσεις μπορούν να προκύψουν άλλες 7 από περιστροφή ή κατοπτρισμό. Άρα, αν θεωρήσουμε αυτές τις λύσεις ξεχωριστές, το πλήθος των λύσεων είναι 5*8=40.
 
 ### Προγραμ/κή λύση ####
-library(gtools)
+library(RcppAlgos)
 
-# Συνάρτηση που ελέγχει αν ο πύργος μπορεί να κάνει νόμιμη κίνηση χωρίς να διασχίζει άλλα τετράγωνα
-is_valid_rook_path &lt;- function(grid) {
-  # Βρίσκουμε τις συντεταγμένες του κάθε αριθμού στο grid
-  coords &lt;- matrix(NA, nrow = 9, ncol = 2)
-  for (i in 1:9) {
-    coords[i, ] &lt;- which(grid == i, arr.ind = TRUE)
-  }
+# Corrected function to check if the rook can make a legal move without crossing other squares
+is_valid_rook_path &lt;- function(perm) {
+  coords &lt;- matrix(c(
+    rep(1:3, each = 3),
+    rep(1:3, times = 3)
+  ), ncol = 2)
   
-  # Ελέγχουμε αν κάθε διαδοχική κίνηση είναι έγκυρη
   for (i in 1:8) {
-    # Έλεγχος αν βρίσκονται στην ίδια γραμμή
-    if (coords[i, 1] == coords[i+1, 1]) {
-      min_col &lt;- min(coords[i, 2], coords[i+1, 2])
-      max_col &lt;- max(coords[i, 2], coords[i+1, 2])
-      # Έλεγχος μόνο αν οι θέσεις δεν είναι γειτονικές
+    from &lt;- coords[which(perm == i), ]
+    to &lt;- coords[which(perm == (i+1)), ]
+    
+    if (from[1] != to[1] &amp;&amp; from[2] != to[2]) {
+      return(FALSE)
+    }
+    
+    if (from[1] == to[1]) {
+      min_col &lt;- min(from[2], to[2])
+      max_col &lt;- max(from[2], to[2])
       if (max_col - min_col &gt; 1) {
         for (j in (min_col + 1):(max_col - 1)) {
-          if (grid[coords[i, 1], j] &lt; min(i, i+1) || grid[coords[i, 1], j] &gt; max(i, i+1)) {
-            return(FALSE)
-          }
-        }
-      }
-    } 
-    # Έλεγχος αν βρίσκονται στην ίδια στήλη
-    else if (coords[i, 2] == coords[i+1, 2]) {
-      min_row &lt;- min(coords[i, 1], coords[i+1, 1])
-      max_row &lt;- max(coords[i, 1], coords[i+1, 1])
-      # Έλεγχος μόνο αν οι θέσεις δεν είναι γειτονικές
-      if (max_row - min_row &gt; 1) {
-        for (j in (min_row + 1):(max_row - 1)) {
-          if (grid[j, coords[i, 2]] &lt; min(i, i+1) || grid[j, coords[i, 2]] &gt; max(i, i+1)) {
+          if (perm[3 * (from[1] - 1) + j] &lt; i || perm[3 * (from[1] - 1) + j] &gt; (i+1)) {
             return(FALSE)
           }
         }
       }
     } else {
-      # Αν δεν είναι στην ίδια γραμμή ή στήλη, η κίνηση είναι άκυρη
-      return(FALSE)
+      min_row &lt;- min(from[1], to[1])
+      max_row &lt;- max(from[1], to[1])
+      if (max_row - min_row &gt; 1) {
+        for (j in (min_row + 1):(max_row - 1)) {
+          if (perm[3 * (j - 1) + from[2]] &lt; i || perm[3 * (j - 1) + from[2]] &gt; (i+1)) {
+            return(FALSE)
+          }
+        }
+      }
     }
   }
   
   return(TRUE)
 }
 
-all_permutations &lt;- permutations(9, 9, 1:9)
+# Generate all permutations using RcppAlgos
+all_permutations &lt;- permuteGeneral(9)
 
-# Έλεγχος κάθε permutation αν είναι έγκυρη διαδρομή πύργου
-valid_grids &lt;- list()
-for (i in 1:nrow(all_permutations)) {
-  grid &lt;- matrix(all_permutations[i, ], nrow = 3, byrow = TRUE)
-  if (is_valid_rook_path(grid)) {
-    valid_grids[[length(valid_grids) + 1]] &lt;- grid
-    print(grid)
-  }
-}
+# Use sapply for vectorized operation
+valid_indices &lt;- which(sapply(1:nrow(all_permutations), function(i) is_valid_rook_path(all_permutations[i,])))
 
-# Εμφάνιση του αριθμού των αποδεκτών πινάκων
-length(valid_grids)</code></pre>
+# Create valid grids
+valid_grids &lt;- lapply(valid_indices, function(i) matrix(all_permutations[i,], nrow = 3, byrow = TRUE))
+
+# Print valid grids
+valid_grids
+
+# Display the number of valid grids
+cat(&quot;Number of valid grids:&quot;, length(valid_grids), &quot;\n&quot;)</code></pre>
 
 
 
